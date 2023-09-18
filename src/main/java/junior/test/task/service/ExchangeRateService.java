@@ -8,6 +8,7 @@ import junior.test.task.mapper.ExchangeMapper;
 import junior.test.task.repository.ExchangeRateRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,7 +33,8 @@ public class ExchangeRateService {
     return response.getBody();
   }
 
-  public ExchangeRateDto getCurrentExchangeRate() throws JsonProcessingException {
+  @Scheduled(cron = "0 0 8,20 * * ?")
+  public void getCurrentExchangeRate() throws JsonProcessingException {
     ExchangeRateDto exchangeRateDto = new ExchangeRateDto();
     String jsonResponse = getExchangeRateJson();
     ObjectMapper objectMapper = new ObjectMapper();
@@ -40,7 +42,7 @@ public class ExchangeRateService {
     exchangeRateDto.setKztValue(exchangeRates.getConversion_rates().get("KZT"));
     exchangeRateDto.setRubValue(exchangeRates.getConversion_rates().get("RUB"));
     exchangeRateDto.setTimeLastUpdateUtc(exchangeRates.getTime_last_update_utc());
-    return exchangeMapper.toDto(exchangeRateRepository.save(exchangeMapper.fromDto(exchangeRateDto)));
+    exchangeMapper.toDto(exchangeRateRepository.save(exchangeMapper.fromDto(exchangeRateDto)));
   }
 
 }

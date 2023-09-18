@@ -15,8 +15,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExchangeRateController {
   private final ExchangeRateService exchangeRateService;
 
-  @GetMapping
-  public ExchangeRateDto getRate() throws JsonProcessingException {
-  return exchangeRateService.getCurrentExchangeRate();
-  }
+
 }
