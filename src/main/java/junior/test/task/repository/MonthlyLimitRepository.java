@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface MonthlyLimitRepository extends JpaRepository<MonthlyLimit, Long> {
   Optional<MonthlyLimit> findByMonth(YearMonth month);
+  MonthlyLimit findAllByMonth(YearMonth month);
 }

@@ -10,7 +10,7 @@ import java.time.YearMonth;
 @Setter
 public class MonthlyLimitDto {
   private Long id;
-  private BigDecimal goodsLimitUSD;
-  private BigDecimal servicesLimitUSD;
+  private int goodsLimitUSD;
+  private int servicesLimitUSD;
   private YearMonth month;
 }
