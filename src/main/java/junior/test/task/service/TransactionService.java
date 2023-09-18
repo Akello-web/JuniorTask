@@ -16,8 +16,6 @@ public class TransactionService {
 
   public TransactionDto saveExpense(TransactionDto transactionDto) {
     transactionDto.setTransactionDate(LocalDateTime.now());
-    System.out.println(LocalDateTime.now());
-    // Сохраните операцию в базу данных
     return transactionMapper.toDto(transactionRepository.save(transactionMapper.fromDto(transactionDto)));
   }
 }
