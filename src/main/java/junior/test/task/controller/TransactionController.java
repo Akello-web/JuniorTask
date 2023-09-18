@@ -1,6 +1,6 @@
 package junior.test.task.controller;
 
-import junior.test.task.model.Transaction;
+import junior.test.task.dto.TransactionDto;
 import junior.test.task.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +20,9 @@ public class TransactionController {
   }
 
   @PostMapping("/add")
-  public ResponseEntity<String> addExpense(@RequestBody Transaction transaction) {
+  public ResponseEntity<String> addExpense(@RequestBody TransactionDto transactionDto) {
     // Вызовите метод сервиса для сохранения операции
-    transactionService.saveExpense(transaction);
+    transactionService.saveExpense(transactionDto);
     // Верните ответ клиенту, например, "Операция успешно сохранена"
     return ResponseEntity.ok("Операция успешно сохранена");
   }
