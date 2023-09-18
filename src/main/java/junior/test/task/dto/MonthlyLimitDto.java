@@ -1,6 +1,5 @@
 package junior.test.task.dto;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 

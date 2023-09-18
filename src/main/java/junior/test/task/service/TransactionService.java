@@ -6,14 +6,18 @@ import junior.test.task.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class TransactionService {
   private final TransactionRepository transactionRepository;
   private final TransactionMapper transactionMapper;
 
-  public void saveExpense(TransactionDto transactionDto) {
+  public TransactionDto saveExpense(TransactionDto transactionDto) {
+    transactionDto.setTransactionDate(LocalDateTime.now());
+    System.out.println(LocalDateTime.now());
     // Сохраните операцию в базу данных
-    transactionRepository.save(transactionMapper.fromDto(transactionDto));
+    return transactionMapper.toDto(transactionRepository.save(transactionMapper.fromDto(transactionDto)));
   }
 }

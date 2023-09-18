@@ -15,9 +15,7 @@ public class ExchangeRate {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private BigDecimal kztValue;
   private BigDecimal rubValue;
   private String timeLastUpdateUtc;
-  private String currencyCode;
 }

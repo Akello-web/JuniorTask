@@ -3,7 +3,7 @@ package junior.test.task.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import junior.test.task.jsonModel.ExchangeRates;
-import junior.test.task.model.ExchangeRate;
+
 import junior.test.task.repository.ExchangeRateRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
