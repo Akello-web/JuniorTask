@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "t_transaction")
 @Getter
@@ -12,9 +13,9 @@ import java.time.LocalDateTime;
 public class Transaction extends BaseModel{
   private int amount;
   private String currency;
-  private LocalDateTime transactionDate;
-  private boolean goods_limit;
-  private boolean service_limit;
+  private LocalDate transactionDate;
+  private boolean goods_limit_exceeded;
+  private boolean service_limit_exceeded;
 
   @ManyToOne(fetch = FetchType.EAGER)
   private Category category;
