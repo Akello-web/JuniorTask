@@ -10,11 +10,7 @@ import java.time.YearMonth;
 @Table(name = "t_monthly_limit")
 @Getter
 @Setter
-public class MonthlyLimit {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
+public class MonthlyLimit  extends BaseModel{
   private int goodsLimitUSD;
   private int servicesLimitUSD;
   private YearMonth month;

@@ -8,10 +8,7 @@ import lombok.Setter;
 @Table(name = "t_exchange_rates")
 @Getter
 @Setter
-public class ExchangeRate {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+public class ExchangeRate extends BaseModel{
   private double kztValue;
   private double rubValue;
   private String timeLastUpdateUtc;

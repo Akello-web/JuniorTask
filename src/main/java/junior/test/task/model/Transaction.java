@@ -4,18 +4,18 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Entity
 @Table(name = "t_transaction")
 @Getter
 @Setter
-public class Transaction {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
-  private BigDecimal amount;
+public class Transaction extends BaseModel{
+  private int amount;
   private String currency;
   private LocalDateTime transactionDate;
+  private boolean goods_limit;
+  private boolean service_limit;
+
+  @ManyToOne(fetch = FetchType.EAGER)
+  private Category category;
 }
