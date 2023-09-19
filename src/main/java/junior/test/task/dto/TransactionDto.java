@@ -14,5 +14,9 @@ public class TransactionDto {
   private LocalDate transactionDate;
   private boolean goods_limit_exceeded;
   private boolean service_limit_exceeded;
+
+  private int init_goods_limit;
+  private int init_service_limit;
+
   private CategoryDto category;
 }

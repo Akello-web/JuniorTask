@@ -18,7 +18,11 @@ public class MonthlyLimitService {
     return existingLimit.orElseGet(() -> createNewLimitForMonth(month));
   }
 
+  public static int forGoods;
+  public static int forServices;
+
   public MonthlyLimit setGoodsLimit(MonthlyLimit limit, int newLimit) {
+    forGoods = newLimit;
     limit.setMonth(YearMonth.now());
     MonthlyLimit monthlyLimit = monthlyLimitRepository.findAllByMonth(limit.getMonth());
     if(monthlyLimit != null){
@@ -31,6 +35,7 @@ public class MonthlyLimitService {
   }
 
   public MonthlyLimit setServicesLimit(MonthlyLimit limit, int newLimit) {
+    forServices = newLimit;
     limit.setMonth(YearMonth.now());
     MonthlyLimit monthlyLimit = monthlyLimitRepository.findAllByMonth(limit.getMonth());
     if(monthlyLimit != null){

@@ -37,7 +37,10 @@ public class TransactionService {
       transactionDto.setService_limit_exceeded(true);
     }
 
-      return transactionMapper.toDto(transactionRepository.save(transactionMapper.fromDto(transactionDto)));
+    transactionDto.setInit_goods_limit(MonthlyLimitService.forGoods);
+    transactionDto.setInit_service_limit(MonthlyLimitService.forServices);
+
+    return transactionMapper.toDto(transactionRepository.save(transactionMapper.fromDto(transactionDto)));
   }
 
   public List<TransactionDto> getGoodsExceededList(){

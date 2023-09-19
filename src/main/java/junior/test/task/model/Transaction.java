@@ -17,6 +17,9 @@ public class Transaction extends BaseModel{
   private boolean goods_limit_exceeded;
   private boolean service_limit_exceeded;
 
+  private int init_goods_limit;
+  private int init_service_limit;
+
   @ManyToOne(fetch = FetchType.EAGER)
   private Category category;
 }
