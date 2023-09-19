@@ -33,7 +33,7 @@ public class ExchangeRateService {
     return response.getBody();
   }
 
-  @Scheduled(cron = "0 0 8,20 * * ?")
+  @Scheduled(cron = "0 */5 * * * ?")//updated every 5 min for now
   public void getCurrentExchangeRate() throws JsonProcessingException {
     ExchangeRateDto exchangeRateDto = new ExchangeRateDto();
     String jsonResponse = getExchangeRateJson();
