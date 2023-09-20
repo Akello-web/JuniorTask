@@ -12,7 +12,7 @@ public interface TransactionMapper {
   @Mapping(source = "category", target = "category")
   TransactionDto toDto(Transaction transaction);
 
-  @Mapping(source = "category", target = "category")
+  @Mapping(source = "category", target = "category", ignore = true)
   Transaction fromDto(TransactionDto transactionDto);
 
   @Mapping(source = "category", target = "category")
