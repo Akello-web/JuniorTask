@@ -3,7 +3,6 @@ package junior.test.task;
 import junior.test.task.dto.CategoryDto;
 import junior.test.task.dto.TransactionDto;
 import junior.test.task.mapper.TransactionMapper;
-import junior.test.task.model.Category;
 import junior.test.task.model.MonthlyLimit;
 import junior.test.task.model.Transaction;
 import junior.test.task.repository.MonthlyLimitRepository;
