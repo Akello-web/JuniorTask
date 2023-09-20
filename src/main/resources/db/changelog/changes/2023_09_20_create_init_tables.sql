@@ -5,29 +5,27 @@ CREATE TABLE t_category (
 
 CREATE TABLE t_exchange_rates (
                                   id BIGSERIAL PRIMARY KEY,
-                                  kzt_value DOUBLE PRECISION,
-                                  rub_value DOUBLE PRECISION,
-                                  time_last_update_utc TIMESTAMP
+                                  kzt_value DOUBLE PRECISION NOT NULL,
+                                  rub_value DOUBLE PRECISION NOT NULL,
+                                  time_last_update_utc VARCHAR(255)
 );
 
 CREATE TABLE t_monthly_limit (
                                  id BIGSERIAL PRIMARY KEY,
-                                 goods_limit_usd INT,
-                                 services_limit_usd INT,
-                                 month DATE NOT NULL
+                                 goods_limitusd INT NOT NULL,
+                                 month BYTEA,
+                                 services_limitusd INT NOT NULL
 );
 
 CREATE TABLE t_transaction (
-                               id serial PRIMARY KEY,
-                               amount INT,
-                               currency VARCHAR(3),
+                               id BIGSERIAL PRIMARY KEY,
+                               amount INT NOT NULL,
+                               currency VARCHAR(255),
+                               goods_limit_exceeded BOOLEAN NOT NULL,
+                               init_goods_limit INT NOT NULL,
+                               init_service_limit INT NOT NULL,
+                               service_limit_exceeded BOOLEAN NOT NULL,
                                transaction_date DATE,
-                               goods_limit_exceeded BOOLEAN,
-                               service_limit_exceeded BOOLEAN,
-                               init_goods_limit INT,
-                               init_service_limit INT,
-                               category_id INT,
-                               FOREIGN KEY (category_id) REFERENCES t_category(id)
+                               category_id BIGINT,
+                               FOREIGN KEY (category_id) REFERENCES t_category (id)
 );
-
-
